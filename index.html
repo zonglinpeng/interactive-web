@@ -7,7 +7,7 @@
     document.body.innerHTML = ''
     const canvas = document.createElement( 'canvas' )
     document.body.appendChild( canvas )
-    canvas.width = canvas.height = 2048
+    canvas.width = canvas.height = 600
     const ctx = canvas.getContext( '2d' )
 
     // audio init
@@ -31,14 +31,14 @@
       // temporal recursion, call tthe function in the future
       window.requestAnimationFrame( draw )
       
-      ctx.fillStyle = 'grey' 
+      ctx.fillStyle = 'white' 
       ctx.fillRect( 0,0,canvas.width,canvas.height )
-      ctx.fillStyle = 'black' 
+      ctx.fillStyle = 'red' 
       
       analyser.getByteFrequencyData( results )
       
       for( let i = 0; i < analyser.frequencyBinCount; i++ ) {
-        ctx.fillRect( i, 0, 2, results[i] ) // upside down
+        ctx.fillRect( i, 0, 5, results[i] ) // upside down
       }
     }
     draw()
